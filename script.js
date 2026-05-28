@@ -1,34 +1,40 @@
-let indiceActual = 0;
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
-let intervalo; // Guardaremos el temporizador aquí
+function calcularPresupuesto() {
+  // 1. Obtenemos los valores que ingresó el cliente
+  const metros = document.getElementById('metros').value;
+  const calidad = document.getElementById('calidad').value;
+  const area = document.getElementById('area').value;
 
-function moverSlide(direccion) {
-  indiceActual += direccion;
-
-  if (indiceActual >= totalSlides) {
-    indiceActual = 0;
-  } else if (indiceActual < 0) {
-    indiceActual = totalSlides - 1;
+  // Validación: Comprobar que el cliente sí puso los metros
+  if (metros === "" || metros <= 0) {
+    alert("Por favor, ingresa una cantidad válida de metros cuadrados.");
+    return;
   }
 
-  const slider = document.querySelector('.slider');
-  slider.style.transform = `translateX(-${indiceActual * 100}%)`;
-}
+  // --- TUS PRECIOS ACTUALES (Cámbialos según tu mercado y moneda) ---
+  // Precio base por metro cuadrado (Ejemplo: $50 por m2)
+  let precioPorMetro = 5; 
 
-// Función para iniciar el movimiento automático
-function iniciarAutoPlay() {
-  intervalo = setInterval(() => {
-    moverSlide(1); // Mueve una imagen hacia adelante
-  }, 3000); // 3000 milisegundos = 3 segundos
-}
+  // Si elige pintura Premium, le sumamos $20 al metro cuadrado
+  if (calidad === 'premium') {
+    precioPorMetro += 20; 
+  }
 
-// Función para cuando el usuario hace clic en los botones
-function moverManual(direccion) {
-  moverSlide(direccion);
-  clearInterval(intervalo); // Detenemos el temporizador actual
-  iniciarAutoPlay(); // Lo volvemos a iniciar para que no se crucen los tiempos
-}
+  // Si es Exterior, le sumamos $15 al metro cuadrado por la dificultad/material
+  if (area === 'exterior') {
+    precioPorMetro += 15; 
+  }
+  // ------------------------------------------------------------------
 
-// Arrancamos el carrusel automático al cargar la página
-iniciarAutoPlay();
+  // 2. Calculamos el total (Metros * Precio por metro)
+  const totalEstimado = metros * precioPorMetro;
+
+  // 3. Mostramos el resultado en la pantalla
+  const elementoResultado = document.getElementById('resultado-presupuesto');
+  const elementoPrecio = document.getElementById('precio-total');
+
+  // Le damos formato de moneda (puedes cambiar el símbolo de $ si usas euros u otra moneda)
+  elementoPrecio.innerText = "$" + totalEstimado.toLocaleString();
+  
+  // Hacemos visible la caja del resultado
+  elementoResultado.className = 'resultado-visible';
+}
