@@ -11,17 +11,27 @@
     <header id="navbar">
         <div class="container nav-container">
             <div class="logo">Excell <span>Pintores</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#contacto" class="btn-contacto">Cotizar ahora</a></li>
-                      <li><a href="./colores.html" class="btn-contacto">Ver Colores</a></li>
 
+            <!-- Botón hamburguesa (solo visible en móvil) -->
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#contacto" class="btn-contacto nav-link">Cotizar ahora</a></li>
+                    <li><a href="./colores.html" class="btn-contacto nav-link">Ver Colores</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Overlay para cerrar el menú al hacer clic fuera -->
+    <div class="nav-overlay" id="nav-overlay"></div>
 
     <section id="inicio" class="hero">
         <div class="hero-content">
@@ -55,19 +65,14 @@
     </section>
 
     <div class="slider-container">
-  <div class="slider">
-    <img src="/img/commercial.png" alt="Casa pintada 1" class="slide">
-    <img src="/img/hero.png" alt="Casa pintada 1" class="slide">
-    <img src="/img/interior.png" alt="Casa pintada 1" class="slide">
-   
-  </div>
-  
-  <button class="prev" onclick="moverSlide(-1)">&#10094;</button>
-  <button class="next" onclick="moverSlide(1)">&#10095;</button>
-</div>
-
-
-
+        <div class="slider">
+            <img src="/img/commercial.png" alt="Trabajo comercial" class="slide">
+            <img src="/img/hero.png" alt="Trabajo destacado" class="slide">
+            <img src="/img/interior.png" alt="Pintura interior" class="slide">
+        </div>
+        <button class="prev" onclick="moverSlide(-1)" aria-label="Anterior">&#10094;</button>
+        <button class="next" onclick="moverSlide(1)" aria-label="Siguiente">&#10095;</button>
+    </div>
 
     <footer>
         <div class="container">
@@ -76,5 +81,31 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Hamburger menu logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu   = document.getElementById('nav-menu');
+        const overlay   = document.getElementById('nav-overlay');
+
+        function toggleMenu(open) {
+            hamburger.classList.toggle('active', open);
+            navMenu.classList.toggle('open', open);
+            overlay.classList.toggle('visible', open);
+            hamburger.setAttribute('aria-expanded', open);
+            document.body.classList.toggle('no-scroll', open);
+        }
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navMenu.classList.contains('open');
+            toggleMenu(!isOpen);
+        });
+
+        overlay.addEventListener('click', () => toggleMenu(false));
+
+        // Cierra el menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    </script>
 </body>
 </html>

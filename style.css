@@ -322,3 +322,14 @@ footer {
   color: #666;
   margin-top: 10px;
 }
+
+
+
+.resultado-oculto {
+  display: none; /* Esto lo oculta al cargar la página */
+}
+
+.resultado-visible {
+  display: block; /* Esto lo hace aparecer cuando se calcula */
+  /* ... tus otros estilos ... */
+}
