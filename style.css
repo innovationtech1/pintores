@@ -427,3 +427,49 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+
+
+
+/* =========================================
+           DISEÑO RESPONSIVO (Móviles y Tablets)
+           ========================================= */
+
+        @media screen and (max-width: 768px) {
+            /* 1. Convertimos la cuadrícula de 2 columnas a 1 sola columna */
+            .calc-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            /* 2. Reducimos los márgenes y padding para aprovechar la pantalla del celular */
+            .calculadora-container {
+                padding: 25px 20px;
+                margin: 0 15px; /* Evita que el cuadro blanco toque los bordes del teléfono */
+            }
+
+            .calc-page-wrapper {
+                padding-top: 80px; /* Menos espacio en la parte superior */
+                padding-bottom: 40px;
+            }
+
+            /* 3. Ajustamos el tamaño de los textos grandes */
+            .calculadora-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .resultado-header h3 {
+                font-size: 1.8rem;
+            }
+
+            /* 4. En el desglose, si el texto es muy largo, lo apilamos ordenadamente */
+            .desglose-fila {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .desglose-fila .valor {
+                align-self: flex-end; /* Manda el precio a la derecha */
+            }
+        }
