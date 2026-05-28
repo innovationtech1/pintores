@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excell Pintores | Expertos en Pintura Residencial y Comercial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="navbar">
+        <div class="container nav-container">
+            <div class="logo">Excell <span>Pintores</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html">Servicios</a></li>
+                    <li><a href="index.html">Cotizar ahora</a></li>
+                    <li><a href="/" class="btn-contacto">Ver Colores</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <script src="script.js"></script>
+<br>
+<br>
+    <section>
+        <div id="contacto" class="calculadora-container">
+  <h2>Calculadora de Presupuesto Estimado</h2>
+  <p>Ingresa los datos de tu espacio para obtener un costo aproximado (material y mano de obra).</p>
+
+  <div class="calc-group">
+    <label for="metros">Metros cuadrados a pintar (m²):</label>
+    <input type="number" id="metros" placeholder="Ej. 50" min="1">
+  </div>
+
+  <div class="calc-group">
+    <label for="calidad">Calidad de la pintura:</label>
+    <select id="calidad">
+      <option value="estandar">Estándar (Económica pero duradera)</option>
+      <option value="premium">Premium (Mejor cobertura y lavable)</option>
+    </select>
+  </div>
+
+  <div class="calc-group">
+    <label for="area">Tipo de área:</label>
+    <select id="area">
+      <option value="interior">Interior</option>
+      <option value="exterior">Exterior (Requiere pintura resistente al clima)</option>
+    </select>
+  </div>
+
+  <button class="btn-calcular" onclick="calcularPresupuesto()">Calcular Precio</button>
+
+
+
+<div id="resultado-presupuesto" class="resultado-oculto">
+  <h3>Costo Estimado: <span id="precio-total">$0</span></h3>
+</div>
+
+  </body>
+</html>
+
+   </section>
+    
+     <script src="script.js"></script>
+</body>
+</html>

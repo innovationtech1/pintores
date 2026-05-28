@@ -188,3 +188,137 @@ footer {
     padding: 30px 0;
     font-size: 0.9rem;
 }
+
+
+/* Contenedor principal */
+.slider-container {
+  position: relative;
+  max-width: 800px; /* Ancho máximo del carrusel */
+  margin: 40px auto; /* Centrado en la página */
+  overflow: hidden; /* Oculta lo que sale del contenedor */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra elegante */
+}
+
+/* El riel que contiene todas las imágenes */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+}
+
+/* Cada imagen individual */
+.slide {
+  min-width: 100%; /* Cada imagen ocupa el 100% del contenedor */
+  height: 450px; /* Alto de las fotos */
+  object-fit: cover; /* Evita que las fotos se deformen */
+}
+
+/* Botones de Anterior y Siguiente */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.calculadora-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  font-family: Arial, sans-serif;
+}
+
+.calculadora-container h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.calculadora-container p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.calc-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.calc-group input, .calc-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn-calcular {
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745; /* Verde para indicar acción de calcular */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn-calcular:hover {
+  background-color: #218838;
+}
+
+/* Estilos para la caja del resultado */
+.resultado-oculto {
+  display: none; /* Oculto por defecto */
+}
+
+.resultado-visible {
+  display: block;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e9f7ef;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.resultado-visible h3 {
+  color: #155724;
+  margin: 0;
+  font-size: 24px;
+}
+
+.resultado-visible .nota {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
