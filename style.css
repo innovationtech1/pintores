@@ -333,3 +333,97 @@ footer {
   display: block; /* Esto lo hace aparecer cuando se calcula */
   /* ... tus otros estilos ... */
 }
+
+/* =========================================
+   DISEÑO RESPONSIVO (Móviles y Tablets)
+   ========================================= */
+
+/* --- Pantallas medianas (Tablets: 768px o menos) --- */
+@media screen and (max-width: 768px) {
+    
+    /* Navegación: Apilamos el logo y el menú */
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Hero: Reducimos el tamaño del texto principal */
+    .hero {
+        padding-top: 120px; /* Damos más espacio porque el menú ahora es más alto */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    /* Slider: Reducimos la altura para que no ocupe toda la pantalla del móvil */
+    .slide {
+        height: 300px;
+    }
+
+    /* Servicios: Reducimos el margen y ajustamos el título */
+    .servicios {
+        padding: 60px 0;
+    }
+
+    .servicios h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+}
+
+/* --- Pantallas pequeñas (Teléfonos móviles: 480px o menos) --- */
+@media screen and (max-width: 480px) {
+    
+    /* Navegación: Menú en columna para que los botones sean fáciles de tocar */
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .btn-contacto {
+        display: block;
+        width: 100%;
+    }
+
+    /* Hero: Texto aún más ajustado para pantallas pequeñas */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Servicios: Las tarjetas ocupan todo el ancho */
+    .tarjeta-servicio {
+        min-width: 100%;
+        padding: 30px 20px;
+    }
+
+    /* Slider: Ajuste final de altura para celulares */
+    .slide {
+        height: 250px;
+    }
+
+    /* Calculadora: Reducimos el padding para aprovechar la pantalla */
+    .calculadora-container {
+        padding: 20px 15px;
+        margin: 30px auto;
+    }
+
+    .calculadora-container h2 {
+        font-size: 1.5rem;
+    }
+}
